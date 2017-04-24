@@ -1,9 +1,9 @@
 package br.com.froli.miniblog.dao;
 
-import org.bson.Document;
-import org.bson.types.ObjectId;
+import static com.mongodb.client.model.Filters.eq;
 
-import com.mongodb.BasicDBObject;
+import org.bson.Document;
+
 import com.mongodb.client.MongoCollection;
 
 import br.com.froli.miniblog.connection.ServiceLocator;
@@ -20,7 +20,9 @@ public abstract class DAO {
 	}
 	
 	public Document findById(String id) {
-        return collection.find(new BasicDBObject("_id", new ObjectId("560ea3f205240f065a3e9d19"))).first();
+		// collection.deleteOne(eq("_id", new ObjectId(sessionID)));
+        //return collection.find(new BasicDBObject("_id", new ObjectId(id))).first();
+        return collection.find(eq("_id", id)).first();
     }
 	
 	public boolean create(Document doc) {

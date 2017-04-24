@@ -17,7 +17,7 @@ public class UserController {
 		UserDAO userDAO = new UserDAO();
 
 		UserController userController = new UserController();
-		// SessionController
+		SessionController sessionController = new SessionController();
 
 		get("/users", (request, response) -> {
 			// SimpleHash root = new SimpleHash();
@@ -52,8 +52,7 @@ public class UserController {
 					root.put("username_error", "Username já está sendo usado");
 					return new ModelAndView(root, USER_TEMPLATE);
 				} else {
-					//TODO: criar sessioncontroller
-					//sessionController.iniciarSessao(username, request);
+					sessionController.iniciarSessao(username, request);
 					response.redirect("/welcome");
 					return null;
 				}

@@ -26,13 +26,18 @@ public class ServiceLocator {
 	}
 
 	public MongoDatabase getDatabase() {
-
+		MongoClient mongoClient = null;
+		
 		if (database == null) {
-			try (MongoClient mongoClient = new MongoClient(new MongoClientURI(URI))) {
+			//try (MongoClient mongoClient = new MongoClient(new MongoClientURI(URI))) {
+			try {
+				mongoClient = new MongoClient(new MongoClientURI(URI));
 				database = mongoClient.getDatabase(DB_NAME);
 			} catch (Exception e) {
 				e.printStackTrace();
-			}
+			} //finally {
+			//	mongoClient.close();
+			//}
 		}
 
 		return database;

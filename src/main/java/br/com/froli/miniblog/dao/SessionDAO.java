@@ -3,7 +3,6 @@ package br.com.froli.miniblog.dao;
 import static com.mongodb.client.model.Filters.eq;
 
 import org.bson.Document;
-import org.bson.types.ObjectId;
 
 public class SessionDAO extends DAO {
 
@@ -20,7 +19,7 @@ public class SessionDAO extends DAO {
 	}
 
 	public void endSession(String sessionID) {
-		collection.deleteOne(eq("_id", new ObjectId(sessionID)));
+		collection.deleteOne(eq("_id", sessionID));
 		//collection.deleteOne(new BasicDBObject("_id", new ObjectId("560ea3f205240f065a3e9d19")));
 	}
 
