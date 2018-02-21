@@ -6,7 +6,7 @@ import com.mongodb.client.MongoDatabase;
 
 public class ServiceLocator {
 
-	private static final String HOST = "192.168.0.65";
+	private static final String HOST = "192.168.56.101";
 	private static final String PORT = "27017";
 	private static final String DB_NAME = "blog";
 	private static final String URI = String.format("mongodb://%s:%s", HOST, PORT);

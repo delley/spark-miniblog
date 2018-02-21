@@ -20,7 +20,7 @@
             Username
           </td>
           <td>
-            <input type="text" name="username" value="${username}">
+            <input type="text" name="username" value="${username!}">
           </td>
           <td class="error">
           </td>
@@ -34,8 +34,7 @@
             <input type="password" name="password" value="">
           </td>
           <td class="error">
-	    ${login_error}
-            
+			${login_error!}
           </td>
         </tr>
 

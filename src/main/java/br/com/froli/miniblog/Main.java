@@ -11,7 +11,7 @@ public class Main {
 	public static void main(String[] args) {
 		// O Spark vai rodar na porta 9090
 		port(9090);
-
+		staticFileLocation("/public");
 		// Inicializa as rotas
 		SessionController.initRoutes();
 		BlogController.initRoutes();
