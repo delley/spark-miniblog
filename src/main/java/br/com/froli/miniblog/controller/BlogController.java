@@ -12,9 +12,9 @@ import java.util.Map;
 import org.bson.Document;
 
 import br.com.froli.miniblog.dao.PostDAO;
-import br.com.froli.miniblog.dao.SessionDAO;
+//import br.com.froli.miniblog.dao.SessionDAO;
 import spark.ModelAndView;
-import spark.Session;
+//import spark.Session;
 import spark.TemplateEngine;
 import spark.template.freemarker.FreeMarkerEngine;
 
@@ -28,7 +28,7 @@ public class BlogController {
 	public static void initRoutes() {
 		
 		TemplateEngine engine = new FreeMarkerEngine();
-		SessionDAO sessionDAO = new SessionDAO();
+		//SessionDAO sessionDAO = new SessionDAO();
 		PostDAO postDAO = new PostDAO();
 		SessionController sessionController = new SessionController();
 
@@ -38,10 +38,10 @@ public class BlogController {
 			List<Document> posts = postDAO.findByDateDescending(10);
 			
 			root.put("myposts", posts);
-			Session session = request.session();
-			String username = sessionDAO.getUsernameBySessionId(session.id());
-			
-			if (username == null) {
+			//Session session = request.session();
+			//String username = sessionDAO.getUsernameBySessionId(session.id());
+			String username = sessionController.getUser(request);
+			if (username != null) {
 				root.put("username", username);
 			}
 			return new ModelAndView(root, BLOG_TEMPLATE);

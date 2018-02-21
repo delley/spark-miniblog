@@ -53,7 +53,7 @@ public class UserController {
 					return new ModelAndView(root, USER_TEMPLATE);
 				} else {
 					sessionController.iniciarSessao(username, request);
-					response.redirect("/welcome");
+					response.redirect("/");
 					return null;
 				}
 			} else {

@@ -40,7 +40,7 @@ public class SessionController {
 
 			if (controller.autenticar(username, password)) {
 				controller.iniciarSessao(username, request);
-				response.redirect("/welcome");
+				response.redirect("/");
 			} else {
 				attributes.put("username", username);
 				attributes.put("password", "");
